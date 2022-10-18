@@ -1,0 +1,87 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter&family=Karla:wght@400;700&display=swap" rel="stylesheet">
+        <meta name="color-scheme" content="light dark">
+        <meta name="theme-color" content="">
+        <script>
+            if (window.matchMedia('(prefers-color-scheme: dark)').media === 'not all') {
+                document.documentElement.style.display = 'none';
+                document.head.insertAdjacentHTML(
+                    'beforeend',
+                    '<link rel="stylesheet" href="light.css onload="document.documentElement.style.display = \'\'">'
+                );
+            }
+        </script>
+        <link rel="stylesheet" href="dark.css" media="(prefers-color-scheme: dark)" />
+        <link rel="stylesheet" href="light.css" media="(prefers-color-scheme: light)" />
+        <link rel="stylesheet" href="index.css">
+        <script src="theme-switch.js" defer></script>
+    </head>
+    <body>
+        <svg display="none">
+          <symbol id="copy-icon" viewBox="0 0 48 48">
+            <rect x="6" y="6" width="30" height="30" rx="3" ry="3" fill="none" stroke="currentColor" stroke-width="2.5"/>
+            <rect x="12" y="12" width="30" height="30" rx="3" ry="3" fill="none" stroke="currentColor" stroke-width="2.5"/>
+          </symbol>
+        </svg>
+        <div id="theme-placement">
+          <button id="theme-switch" aria-label="auto" aria-live="polite">
+            <div id="sun-and-moon">
+              <div id="body"></div>
+              <div id="mask"></div>
+              <div class="ray"></div>
+              <div class="ray"></div>
+              <div class="ray"></div>
+              <div class="ray"></div>
+              <div class="ray"></div>
+              <div class="ray"></div>
+              <div class="ray"></div>
+              <div class="ray"></div>
+            </div>
+          </button>
+        </div>
+        <main>
+            <section>
+                <h1>Generate a <span class="accent-text">random password</span></h1>
+                <h4>Never use an insecure password again</h4>
+
+                <form id="password-form">
+                    <div>
+                        <input type="checkbox" id="number" name="number" checked></input>
+                        <label for="number">Numbers present in passwords</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="symbol" name="symbol" checked></input>
+                        <label for="symbol">Symbols present in passwords</label>
+                    </div>
+                    <div>
+                        <label for="length">Password length:</label><br>
+                        <input id="length" name="length" type="number" min="0" value="15"></input>
+                    </div>
+                    <button id="generate-passwords">Generate passwords</button>
+                </form>
+            </section>
+            <hr>
+            <section id="passwords">
+                <div class="password">
+                    <svg class="copy">
+                        <use xlink:href="#copy-icon">
+                    </svg>
+                    <div id="password-1"></div>
+                </div>
+                <div class="password">
+                    <svg class="copy">
+                        <use xlink:href="#copy-icon">
+                    </svg>
+                    <div id="password-2"></div>
+                </div>
+            </section>
+        </main>
+        <script src="index.js"></script>
+    </body>
+</html>

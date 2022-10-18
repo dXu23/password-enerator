@@ -1,0 +1,250 @@
+
+body {
+    margin: 0;
+    font-size: max(calc(0.6rem + 0.6vw), 13px);
+    color: var(--text1);
+    background-color: var(--bg);
+    accent-color: var(--brand-title);
+    font-family: 'Inter';
+}
+
+main {
+    padding: min(21%, 150px) 9%;
+}
+
+section {
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+h1 {
+    font-family: 'Karla';
+    font-size: max(calc(1.4rem + 1.4vw), 18px);
+    margin-bottom: 1%;
+}
+
+h4 {
+    margin-top: 1%;
+    color: var(--text2);
+}
+
+hr {
+    border: 1px solid var(--border);
+}
+
+.accent-text {
+    color: var(--brand-title);
+}
+
+form div {
+    margin-block: 16px;
+}
+
+button {
+    background-color: var(--brand-button);
+    border-style: none;
+    padding: 9px 16px;
+    color: white;
+    border-radius: 6px;
+}
+
+#passwords {
+    display: flex;
+    justify-content: space-between;
+}
+
+input[type=checkbox] {
+    width: max(calc(0.6vw + 0.6rem), 13px)
+    vertical-align: middle;
+}
+
+input[type=number] {
+    width: 25%;
+    background-color: var(--password-bg);
+    padding: 6px 12px;
+    border: 1px solid var(--brand-title);
+    border-radius: 6px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+.password {
+    position: relative;
+    cursor: pointer;
+    background-color: var(--password-bg);
+    color: var(--password-text);
+    aspect-ratio: 11 / 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-width: 40%;
+}
+
+.password:active {
+    background: var(--bg);
+    -webkit-box-shadow: inset 0px 0px 5px var(--border);
+       -moz-box-shadow: inset 0px 0px 5px var(--border);
+            box-shadow: inset 0px 0px 5px var(--border);
+    outline: none;
+}
+
+.copy {
+  display: none;
+  fill: var(--password-text);
+  position: absolute;
+  left: 7%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: max(13px, calc(8% + 0.6vw));
+  aspect-ratio: 1 / 1;
+  color: var(--password-text);
+}
+
+.password:hover .copy {
+  display: block;
+}
+
+
+#theme-switch {
+  border-style: none;
+  cursor: pointer;
+  position: absolute;
+  top: 15px;
+  right: min(20vw, 150px);
+  padding: 0;
+}
+
+
+#sun-and-moon {
+  background-color: var(--bg);
+  border-style: none;
+  position: relative;
+  width: 100px;
+  aspect-ratio: 1 / 1;
+}
+
+#body {
+  position: absolute;
+  width: 45%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background-color: var(--text1);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform .5s cubic-bezier(.5,1.25,.75,1.25);
+}
+
+#sun-and-moon:hover > #body, #sun-and-moon:hover > .ray {
+  background-color: var(--text2);
+}
+
+.ray {
+  position: absolute;
+  background-color: var(--text1);
+  width: 14%;
+  aspect-ratio: 3 / 1;
+  top: 50%;
+  left: 50%;
+  border-radius: 25% 25% 25% 25% / 50% 50% 50% 50%;
+  transform-origin: center;
+  transition: transform .5s cubic-bezier(.5,1.5,.75,1.25);
+               /* opacity .5s cubic-bezier(.25,0,.3,1); */
+}
+
+#sun-and-moon > div:nth-child(3) {
+  transform: translate(-50%, -770%) rotate(90deg);
+}
+
+#sun-and-moon > div:nth-child(4) {
+  transform: translate(119%, -557%) rotate(-45deg);
+}
+
+#sun-and-moon > div:nth-child(5) {
+  transform: translate(190%, -50%);
+}
+
+#sun-and-moon > div:nth-child(6) {
+  transform: translate(119%, 457%) rotate(45deg);
+}
+
+#sun-and-moon > div:nth-child(7) {
+  transform: translate(-50%, 670%) rotate(-90deg);
+}
+
+#sun-and-moon > div:nth-child(8) {
+  transform: translate(-219%, 457%) rotate(-45deg);
+}
+
+#sun-and-moon > div:nth-child(9) {
+  transform: translate(-290%, -50%);
+}
+
+#sun-and-moon > div:nth-child(10) {
+  transform: translate(-219%, -557%) rotate(45deg);
+}
+
+#mask {
+  position: absolute;
+  width: 0%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  top: 10%;
+  left: 45%;
+  background-color: var(--bg);
+}
+
+#theme-switch[aria-label=dark] #sun-and-moon #body {
+  transform: translate(-50%, -50%) scale(1.5);
+  transition-timing-function: cubic-bezier(.5,1.25,.75,1.25);
+  transition-duration: .25s;
+}
+
+#theme-switch[aria-label=dark] #sun-and-moon .ray {
+  opacity: 0;
+  transition: transform .5s cubic-bezier(.5,1.5,.75,1.25), 
+              opacity .5s cubic-bezier(.25,0,.3,1);
+}
+
+#theme-switch[aria-label=dark] #sun-and-moon > div {
+  transform-origin: center;
+}
+
+#theme-switch[aria-label=dark] #sun-and-moon > div:nth-child(3) {
+  transform: translate(-50%, -770%) rotate(65deg);
+}
+
+#theme-switch[aria-label=dark] #sun-and-moon > div:nth-child(4) {
+  transform: translate(119%, -557%) rotate(-70deg);
+}
+
+#theme-switch[aria-label=dark] #sun-and-moon > div:nth-child(5) {
+  transform: translate(190%, -50%) rotate(-25deg);
+}
+
+#theme-switch[aria-label=dark] #sun-and-moon > div:nth-child(6) {
+  transform: translate(119%, 457%) rotate(25deg);
+}
+
+#theme-switch[aria-label=dark] #sun-and-moon > div:nth-child(7) {
+  transform: translate(-50%, 670%) rotate(-115deg);
+}
+
+#theme-switch[aria-label=dark] #sun-and-moon > div:nth-child(8) {
+  transform: translate(-219%, 457%) rotate(-70deg);
+}
+
+#theme-switch[aria-label=dark] #sun-and-moon > div:nth-child(9) {
+  transform: translate(-290%, -50%) rotate(-25deg);
+}
+
+#theme-switch[aria-label=dark] #sun-and-moon > div:nth-child(10) {
+  transform: translate(-219%, -557%) rotate(20deg);
+}
+
+#theme-switch[aria-label=dark] #mask {
+  width: 70%;
+  transition: width .25s cubic-bezier(0, 0, 0, 1);
+}
+
